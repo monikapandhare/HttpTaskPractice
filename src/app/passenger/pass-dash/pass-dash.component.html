@@ -1,0 +1,17 @@
+<app-pass-count
+[allpasscnt]="passArray.length"
+[checkPasscnt]="getcheckcnt"
+>
+    
+</app-pass-count>
+
+<p class="alert alert-info" *ngFor="let pass of passArray">
+    {{pass.fullname}}
+</p>
+<app-pass-card
+*ngFor="let pass of passArray"
+[passObj]="pass"
+(emitID)="onDeleteCount()"
+>
+    
+</app-pass-card>

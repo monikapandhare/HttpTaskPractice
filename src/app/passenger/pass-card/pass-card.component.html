@@ -1,0 +1,26 @@
+<div class="card mt-4">
+    <div class="card-header">
+        <input type="text" [value]="passObj.fullname" #fullName [disabled]="!editMode" class="form-control">
+    </div>
+    <div class="card-body">
+        <p>
+            {{passObj.checkInDate?(passObj.checkInDate | date):"Not Checked In" }}
+        </p>
+        <p>
+            {{passObj.children?.length || null}}
+        </p>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+        <button class="btn btn-primary"
+        *ngIf="!editMode"
+        (click)="editMode=true"
+        >Edit</button>
+        <button class="btn btn-success"
+        *ngIf="editMode"
+        (click)="editMode=false;onUpdate(fullName.value)"
+        >Done</button>
+        <button class="btn btn-danger"
+        (click)="OnDelete(passObj.id)"
+        >Delete</button>
+    </div>
+</div>
